@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { v4 as uuidv4 } from 'uuid';
+
 
 function AddContact({addContactHandler}) {
   const [contact, setContact] = useState({
@@ -13,7 +13,7 @@ function AddContact({addContactHandler}) {
   }
 
   function handleEmailInputChange(e){
-    setContact({...contact, email: e.target.value, id: uuidv4()})
+    setContact({...contact, email: e.target.value})
 }
 
   function add(e){
