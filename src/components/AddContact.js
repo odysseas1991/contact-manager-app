@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
-function AddContact() {
-  //const [name, setName] = useState('')
-  //const [email, setEmail] = useState('')
+function AddContact({addContactHandler}) {
   const [contact, setContact] = useState({
     id: "",
     name: "",
@@ -15,7 +13,7 @@ function AddContact() {
   }
 
   function handleEmailInputChange(e){
-    setContact({...contact, email: e.target.value})
+    setContact({...contact, email: e.target.value, id: uuidv4()})
 }
 
   function add(e){
@@ -24,8 +22,10 @@ function AddContact() {
         alert('All the fields are required!')
         return
     }
-    
-    console.log(contact)
+
+    addContactHandler(contact)
+    //Reset form fields
+    setContact({name: "", email: ""})
 
   }
 
