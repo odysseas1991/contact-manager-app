@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-
+import { useHistory } from 'react-router-dom'
 
 function AddContact({addContactHandler}) {
+  const history = useHistory();
   const [contact, setContact] = useState({
-    id: "",
     name: "",
     email: ""
     })
@@ -26,7 +26,7 @@ function AddContact({addContactHandler}) {
     addContactHandler(contact)
     //Reset form fields
     setContact({name: "", email: ""})
-
+    history.push('/')
   }
 
   return (
