@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import Header from './Header'
 import AddContact from './AddContact'
 import ContactList from './ContactList'
-import { v4 as uuidv4 } from 'uuid';
+import ContactDetail from './ContactDetail';
 
 function App() {
   const LOCAL_STORAGE_KEY = "contacts"
@@ -55,6 +56,9 @@ function App() {
           addContactHandler={addContactHandler}
           />
         )}
+        />
+        <Route
+          path="/contact/:id" component={ContactDetail}
         />
       </Switch>
     </Router>
